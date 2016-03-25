@@ -19,8 +19,8 @@ dht DHT;
 #define DHT11_PIN 7
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
-float temp;
-float humidity;
+double temp;
+double humidity;
 
 void setup(){
   Serial.begin(9600);
@@ -38,12 +38,16 @@ void loop()
   
   lcd.setCursor(0,0);
   lcd.print("Temp: ");
-  lcd.print(temp);
-  lcd.print(" C");
+  lcd.print(convT2F(temp));
+  lcd.print(" F");
   lcd.setCursor(0,1);
   lcd.print("Hum: ");
   lcd.print(humidity);
   lcd.print(" %");
   delay(300);
+}
+
+double convT2F(double tempC){
+  return (tempC * (9/5) + 32);
 }
 
