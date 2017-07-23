@@ -38,7 +38,7 @@ void loop()
   
   lcd.setCursor(0,0);
   lcd.print("Temp: ");
-  lcd.print(convT2F(temp));
+  lcd.print(CelsiusToFahrenheit(temp));
   lcd.print(" F");
   lcd.setCursor(0,1);
   lcd.print("Hum: ");
@@ -47,7 +47,9 @@ void loop()
   delay(300);
 }
 
-double convT2F(double tempC){
-  return (tempC * (9/5) + 32);
+//Celsius to Fahrenheit conversion
+double CelsiusToFahrenheit(double celsius)
+{
+  return 1.8 * celsius + 32;
 }
 
